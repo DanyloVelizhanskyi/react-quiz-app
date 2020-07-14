@@ -34,14 +34,14 @@ class Drawer extends Component {
         }
 
         const links = [
-            { to: '/', label: 'Список', exact: true }
+            { to: '/', label: 'List of quizes', exact: true }
         ]
 
         if (this.props.isAuthenticated) {
-            links.push({ to: '/quiz-creator', label: 'Создать тест', exact: false })
-            links.push({ to: '/logout', label: 'Выйти', exact: false })
+            links.push({ to: '/quiz-creator', label: 'Create quiz', exact: false })
+            links.push({ to: '/logout', label: 'Sign out', exact: false })
         } else {
-            links.push({ to: '/auth', label: 'Авторизация', exact: false })
+            links.push({ to: '/auth', label: 'Authorization', exact: false })
         }
 
         return (

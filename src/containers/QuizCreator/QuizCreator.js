@@ -10,8 +10,8 @@ import { createQuizQuestion, finishCreateQuiz } from '../../store/actions/create
 
 function createOptionControl(number) {
     return createControl({
-        label: `Вариант ${number}`,
-        errorMessage: 'Значение не может быть пустым',
+        label: `Option ${number}`,
+        errorMessage: 'The field cannot be empty',
         id: number
     }, { required: true })
 }
@@ -19,8 +19,8 @@ function createOptionControl(number) {
 function createFormControls() {
     return {
         question: createControl({
-            label: 'Введите вопрос',
-            errorMessage: 'Вопрос не может быть пустым'
+            label: 'Enter a question',
+            errorMessage: 'Question cannot be empty'
         }, { required: true }),
         option1: createOptionControl(1),
         option2: createOptionControl(2),
@@ -123,7 +123,7 @@ class QuizCreator extends Component {
 
     render() {
         const select = <Select
-            label="Выберите правильный ответ"
+            label="Choose the correct answer"
             value={this.state.rightAnswerId}
             onChange={this.selectChangeHandler}
             options={[
@@ -137,7 +137,7 @@ class QuizCreator extends Component {
         return (
             <div className={classes.QuizCreator}>
                 <div>
-                    <h1>Создание теста</h1>
+                    <h1>Quiz Creator</h1>
 
                     <form onSubmit={this.submitHandler}>
 
@@ -150,7 +150,7 @@ class QuizCreator extends Component {
                             onClick={this.addQuestionHandler}
                             disabled={!this.state.isFormValid}
                         >
-                            Добавить вопрос
+                            Add a question
                         </Button>
 
                         <Button
@@ -158,7 +158,7 @@ class QuizCreator extends Component {
                             onClick={this.createQuizHandler}
                             disabled={this.props.quiz.length === 0}
                         >
-                            Создать тест
+                            Create quiz
                         </Button>
 
                     </form>

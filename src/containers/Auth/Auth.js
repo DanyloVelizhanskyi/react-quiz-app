@@ -19,7 +19,7 @@ class Auth extends Component {
                 value: '',
                 type: 'email',
                 label: 'Email',
-                errorMessage: 'Введите корректный email',
+                errorMessage: 'Enter the correct email',
                 valid: false,
                 touched: false,
                 validation: {
@@ -30,8 +30,8 @@ class Auth extends Component {
             password: {
                 value: '',
                 type: 'password',
-                label: 'Пароль',
-                errorMessage: 'Введите корректный пароль',
+                label: 'Password',
+                errorMessage: 'Enter the correct password',
                 valid: false,
                 touched: false,
                 validation: {
@@ -128,7 +128,7 @@ class Auth extends Component {
         return (
             <div className={classes.Auth}>
                 <div>
-                    <h1>Авторизация</h1>
+                    <h1>Authorization</h1>
 
                     <form onSubmit={this.submitHandler} className={classes.AuthForm}>
 
@@ -139,7 +139,7 @@ class Auth extends Component {
                             onClick={this.loginHandler}
                             disabled={!this.state.isFormValid}
                         >
-                            Войти
+                            Login
                         </Button>
 
                         <Button
@@ -147,7 +147,7 @@ class Auth extends Component {
                             onClick={this.registerHandler}
                             disabled={!this.state.isFormValid}
                         >
-                            Зарегестрироваться
+                            Sign up
                         </Button>
                     </form>
                 </div>
