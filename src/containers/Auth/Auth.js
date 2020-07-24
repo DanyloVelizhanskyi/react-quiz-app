@@ -1,9 +1,9 @@
-import React, { Component } from 'react'
-import classes from './Auth.module.css'
-import Button from '../../components/UI/Button/Button'
-import Input from '../../components/UI/Input/Input'
-import { connect } from 'react-redux'
-import { auth } from '../../store/actions/auth'
+import React, { Component } from 'react';
+import classes from './Auth.module.css';
+import Button from '../../components/UI/Button/Button';
+import Input from '../../components/UI/Input/Input';
+import { connect } from 'react-redux';
+import { auth } from '../../store/actions/auth';
 
 function validateEmail(email) {
     const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -47,7 +47,7 @@ class Auth extends Component {
             this.state.formControls.email.value,
             this.state.formControls.password.value,
             true
-        ) 
+        );
     }
 
     registerHandler = () => {
@@ -55,49 +55,47 @@ class Auth extends Component {
             this.state.formControls.email.value,
             this.state.formControls.password.value,
             false
-        )
-        
+        );
     }
 
     submitHandler = event => {
-        event.preventDefault()
+        event.preventDefault();
     }
 
     validateControl(value, validation) {
         if (!validation) {
-            return true
+            return true;
         }
 
-        let isValid = true
+        let isValid = true;
 
         if (validation.required) {
-            isValid = value.trim() !== '' && isValid
+            isValid = value.trim() !== '' && isValid;
         }
 
         if (validation.email) {
-            isValid = validateEmail(value) && isValid
+            isValid = validateEmail(value) && isValid;
         }
 
         if (validation.minLength) {
-            isValid = value.length >= validation.minLength && isValid
+            isValid = value.length >= validation.minLength && isValid;
         }
 
-        return isValid
+        return isValid;
     }
 
     onChangeHandler = (event, controlName) => {
-        const formControls = { ...this.state.formControls }
-        const control = { ...formControls[controlName] }
+        const formControls = { ...this.state.formControls };
+        const control = { ...formControls[controlName] };
+        control.value = event.target.value;
+        control.touched = true;
+        control.valid = this.validateControl(control.value, control.validation);
+        formControls[controlName] = control;
 
-        control.value = event.target.value
-        control.touched = true
-        control.valid = this.validateControl(control.value, control.validation)
-        formControls[controlName] = control
-
-        let isFormValid = true
+        let isFormValid = true;
 
         Object.keys(formControls).forEach(name => {
-            isFormValid = formControls[name].valid && isFormValid
+            isFormValid = formControls[name].valid && isFormValid;
         })
 
         this.setState({
@@ -159,7 +157,7 @@ class Auth extends Component {
 function mapDispatchToProps(dispatch) {
     return {
         auth: (emai, password, isLogin) => dispatch(auth(emai, password, isLogin))
-    }
+    };
 }
 
-export default connect(null, mapDispatchToProps)(Auth)
+export default connect(null, mapDispatchToProps)(Auth);

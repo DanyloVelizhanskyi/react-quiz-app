@@ -1,10 +1,10 @@
-import React from 'react'
-import classes from './AnswersList.module.css'
-import AnswerItem from './AnswerItem/AnswerItem'
+import React from 'react';
+import classes from './AnswersList.module.css';
+import AnswerItem from './AnswerItem/AnswerItem';
 
 const AnswersList = props => (
     <ul className={classes.AnswersList}>
-        { props.answers.map((answer, index) => {
+        {props.answers.map((answer, index) => {
             return (
                 <AnswerItem 
                     key={index}
@@ -13,8 +13,8 @@ const AnswersList = props => (
                     state={props.state ? props.state[answer.id] : null}
                 />
             )
-        }) }
+        })}
     </ul>
-)
+);
 
-export default AnswersList
+export default AnswersList;

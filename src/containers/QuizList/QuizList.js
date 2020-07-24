@@ -1,9 +1,9 @@
-import React, { Component } from 'react'
-import classes from './QuizList.module.css'
-import { NavLink } from 'react-router-dom'
-import Loader from '../../components/UI/Loader/Loader'
-import { connect } from 'react-redux'
-import { fetchQuizes } from '../../store/actions/quiz'
+import React, { Component } from 'react';
+import classes from './QuizList.module.css';
+import { NavLink } from 'react-router-dom';
+import Loader from '../../components/UI/Loader/Loader';
+import { connect } from 'react-redux';
+import { fetchQuizes } from '../../store/actions/quiz';
 
 class QuizList extends Component {
 
@@ -23,7 +23,7 @@ class QuizList extends Component {
 
     componentDidMount() {
         this.props.fetchQuizes()
-    }
+    };
 
     render() {
         return (
@@ -43,19 +43,19 @@ class QuizList extends Component {
             </div>
         )
     }
-}
+};
 
 function mapStateToProps(state) {
     return {
         quizes: state.quiz.quizes,
         loading: state.quiz.loading
     }
-}
+};
 
 function mapDispatchToProps(dispatch) {
     return {
         fetchQuizes: () => dispatch(fetchQuizes())
     }
-}
+};
 
-export default connect(mapStateToProps, mapDispatchToProps)(QuizList)
+export default connect(mapStateToProps, mapDispatchToProps)(QuizList);

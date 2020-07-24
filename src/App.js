@@ -1,13 +1,13 @@
-import React, { Component } from 'react'
-import Layout from './hoc/Layout/Layout'
-import { Route, Switch, Redirect, withRouter } from 'react-router-dom'
-import Quiz from './containers/Quiz/Quiz'
-import QuizList from './containers/QuizList/QuizList'
-import Auth from './containers/Auth/Auth'
-import QuizCreator from './containers/QuizCreator/QuizCreator'
-import { connect } from 'react-redux'
-import Logout from './components/Logout/Logout'
-import { autoLogin } from './store/actions/auth'
+import React, { Component } from 'react';
+import Layout from './hoc/Layout/Layout';
+import { Route, Switch, Redirect, withRouter } from 'react-router-dom';
+import Quiz from './containers/Quiz/Quiz';
+import QuizList from './containers/QuizList/QuizList';
+import Auth from './containers/Auth/Auth';
+import QuizCreator from './containers/QuizCreator/QuizCreator';
+import { connect } from 'react-redux';
+import Logout from './components/Logout/Logout';
+import { autoLogin } from './store/actions/auth';
 
 class App extends Component {
 
@@ -24,7 +24,7 @@ class App extends Component {
         <Route path="/" exact component={QuizList} />
         <Redirect to="/" />
       </Switch>
-    )
+    );
 
     if (this.props.isAuthenticated) {
       routes = (
@@ -35,7 +35,7 @@ class App extends Component {
           <Route path="/" exact component={QuizList} />
           <Redirect to="/" />
         </Switch>
-      )
+      );
     }
 
     return (
@@ -58,4 +58,4 @@ function mapDispatchToProps(dispatch) {
   }
 }
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App))
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));

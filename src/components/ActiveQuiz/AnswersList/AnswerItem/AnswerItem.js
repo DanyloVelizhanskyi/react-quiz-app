@@ -1,5 +1,5 @@
-import React from 'react'
-import classes from './AnswerItem.module.css'
+import React from 'react';
+import classes from './AnswerItem.module.css';
 
 const AnswerItem = props => {
 
@@ -17,6 +17,6 @@ const AnswerItem = props => {
             { props.answer.text }
         </li>
     )
-}
+};
 
-export default AnswerItem
+export default AnswerItem;

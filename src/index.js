@@ -4,10 +4,10 @@ import './index.css';
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
-import { createStore, compose, applyMiddleware } from 'redux'
-import { Provider } from 'react-redux'
-import rootReducer from './store/reducers/rootReducer'
-import thunk from 'redux-thunk'
+import { createStore, compose, applyMiddleware } from 'redux';
+import { Provider } from 'react-redux';
+import rootReducer from './store/reducers/rootReducer';
+import thunk from 'redux-thunk';
 
 const composeEnhancers =
   typeof window === 'object' &&
@@ -20,7 +20,7 @@ const store = createStore(
   composeEnhancers(
     applyMiddleware(thunk)
   )
-)
+);
 
 const app = (
   <Provider store={store}>
@@ -28,7 +28,7 @@ const app = (
       <App />
     </BrowserRouter>
   </Provider>
-)
+);
 
 ReactDOM.render(
   app,

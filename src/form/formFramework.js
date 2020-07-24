@@ -13,13 +13,13 @@ export function createControl(config, validation) {
       return true
     }
   
-    let isValid = true
+    let isValid = true;
   
     if (validation.required) {
       isValid = value.trim() !== '' && isValid
     }
   
-    return isValid
+    return isValid;
   }
   
   export function validateForm(formControls) {
@@ -31,5 +31,5 @@ export function createControl(config, validation) {
       }
     }
   
-    return isFormValid
+    return isFormValid;
   }
